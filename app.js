@@ -7,7 +7,12 @@ const userRoutes = require('./Routes/User');
 const app = express();
 const port = process.env.PORT || 8000;
 
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors({ 
+  origin: "*", 
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true 
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -23,6 +28,3 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is up and running on port ${port}`);
 });
-
-
-
