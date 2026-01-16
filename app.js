@@ -18,7 +18,6 @@ app.use(express.urlencoded({ extended: true }));
 
 connectDB().catch(err => console.error('DB connect failed:', err));
 
-// mount user routes where frontend expects them
 app.use('/api/user', userRoutes);
 
 app.get('/', (req, res) => {
